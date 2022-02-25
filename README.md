@@ -3,25 +3,26 @@
 Conta Bancária - POO - Java ☕
 -----------------------------
 
-- Desenvolva uma classe que represente uma conta de banco, cada objeto criado a partir desta classe deverá ter os seguintes campos:
-nome do titular
-saldo da conta
-número da conta
-Tipo da Conta (PJ ou PF)
+Desenvolva uma classe que represente uma conta de banco, cada objeto criado a partir desta classe deverá ter os seguintes campos:
+
+- nome do titular
+- saldo da conta
+- número da conta
+- Tipo da Conta (PJ ou PF)
 
 
-- Esta classe deverá ter um método que permita depositar valores (receberá como parâmetro um Double) e também um método que poderá sacar valores (receberá como parâmetro um Double).
+Esta classe deverá ter um método que permita depositar valores (receberá como parâmetro um Double) e também um método que poderá sacar valores (receberá como parâmetro um Double).
 
 
-- Depois criei uma classe Programa onde terá o método main, para executar esta classe. 
+Depois criei uma classe Programa onde terá o método main, para executar esta classe. 
 
-- Crie dois objetos da conta e “brinque” com os métodos de sacar e depositar.
+Crie dois objetos da conta e “brinque” com os métodos de sacar e depositar.
 
 Por exemplo: 
 
-Conta conta1 = new Conta("João da Silva", 789.99, "123456", "PF");
-conta1.depositar(100.0); // a classe deve ter seu saldo para 889.99
-conta1.sacar(500); // a classe deve ter seu saldo para 399.99
+- Conta conta1 = new Conta("João da Silva", 789.99, "123456", "PF");
+- conta1.depositar(100.0); // a classe deve ter seu saldo para 889.99
+- conta1.sacar(500); // a classe deve ter seu saldo para 399.99
 
 // Dica - Para imprimir o valor do saldo utilize System.out.println(conta1.saldo);
 

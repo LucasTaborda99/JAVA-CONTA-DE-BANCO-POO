@@ -28,8 +28,9 @@ public class Programa {
 		conta1.Sacar(10.00);
 		conta1.Sacar(10.00);
 		conta1.Sacar(10.00);
-		conta1.Sacar(463.00);
 		conta1.Sacar(10.00);
+		conta1.Sacar(10.00);
+		conta1.Sacar(445.00);
 		
 	}
 }

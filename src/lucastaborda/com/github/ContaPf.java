@@ -29,9 +29,13 @@ public class ContaPf extends ContaBanco {
 		} else {
 			if(TotalSaques > 3  && Valor < Saldo) {
 				this.Saldo -= (Valor + (Valor * 0.01));
-				System.out.println("--- Saque ---");
-				System.out.println("Saldo atual após o Saque de R$" + Valor + " já incluso taxa: R$" + Saldo);
-				System.out.println("");
+					System.out.println("--- Saque ---");
+					System.out.println("Saldo atual após o Saque de R$" + Valor + " já incluso taxa: R$" + Saldo);
+					System.out.println("");
+						if(this.Saldo < 0) {
+							System.err.println("Valor Negativo (Sua conta está zerada)");
+							System.out.println("");
+						}
 			}
 			else {
 				this.Saldo -= Valor;

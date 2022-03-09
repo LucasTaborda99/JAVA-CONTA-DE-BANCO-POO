@@ -7,12 +7,20 @@ public class ContaPj extends ContaBanco {
 	}
 
 	// Método Depositar
-	public void Depositar(Double Valor) {
-		this.Saldo += (Valor - (Valor * 0.02));
-	}
-	
-	// Método Sacar
-	public void Sacar(Double Valor) {
+		public Double Depositar(Double Valor) {
+			this.Saldo = Saldo + (Valor - (Valor * 0.02));
+			System.out.println("--- Depósito ---");
+			System.out.println("Saldo atual após o Depósito de R$" + Valor + " já incluso taxa: R$" + Saldo);
+			System.out.println("");
+				return this.Saldo;
+		}
 			
-	}
+		// Método Sacar
+		public Double Sacar(Double Valor) {
+			this.Saldo -= Valor;
+			System.out.println("--- Saque ---");
+			System.out.println("Saldo atual após o Saque de R$" + Valor + ": R$" + Saldo);
+			System.out.println("");
+				return this.Saldo;
+		}
 }

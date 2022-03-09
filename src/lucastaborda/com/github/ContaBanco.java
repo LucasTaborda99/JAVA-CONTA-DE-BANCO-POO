@@ -20,17 +20,17 @@ public class ContaBanco {
 	
 	// Método Depositar
 	public Double Depositar (Double Valor) {
-		this.Valor = Valor;
+		/*this.Valor = Valor;
 			if(this.Tipo.equals("PJ")) {
 			this.Saldo =  Saldo + (Valor - (Valor * 0.02));
 		} else
-			this.Saldo = Saldo + (Valor - (Valor * 0.01));
+			this.Saldo = Saldo + (Valor - (Valor * 0.01));*/
 		return this.Saldo;
 	}
 	
 	// Método Sacar
 	public Double Sacar(Double Valor) {
-	
+	/*
 		//System.out.println(TotalSaques);
 		
 		this.Valor = Valor;
@@ -63,7 +63,8 @@ public class ContaBanco {
 		
 		return Saldo;
 		
-		}
-	}
+		}*/
+		return this.Saldo; 
+	} 
 }
 

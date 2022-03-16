@@ -1,51 +1,58 @@
 package lucastaborda.com.github;
 
 public class ContaPf extends ContaBanco {
-
-	public Integer TotalSaques = 1;
 	
-	public ContaPf(String NomeTitular, Double Saldo, String Numero, String Tipo) {
-		super(NomeTitular, Saldo, Numero, Tipo);
+	// Atributo
+	public Integer totalSaques = 1;
+	
+	public ContaPf(String nomeTitular, Double saldo, String numero, String tipo) {
+		super(nomeTitular, saldo, numero, tipo);
 	}
 	
 	// Método Depositar
-		public Double Depositar(Double Valor) {
-			this.Saldo = Saldo + (Valor - (Valor * 0.01));
+		public Double depositar(Double valor) {
+			Double saldo = getSaldo() + (valor - (valor * 0.01));
+			setSaldo(saldo);
 			System.out.println("--- Depósito ---");
-			System.out.println("Saldo atual após o Depósito de R$" + Valor + " já incluso taxa: R$" + Saldo);
+			System.out.println("Saldo atual após o Depósito de R$" + valor + " já incluso taxa: R$" + saldo);
 			System.out.println("");
-				return this.Saldo;
+				return saldo;
 	}
 		
 	// Método Sacar
-	public Double Sacar(Double Valor) {
+	public Double sacar(Double valor) {
 		
 		//System.out.println(TotalSaques);
 		
-		if(Valor > Saldo) {
-				System.err.print("Saldo indisponível para saque, você não possui R$" + Valor + " para sacar");
+		if(valor > getSaldo()) {
+				System.err.print("Saldo indisponível para saque, você não possui R$" + valor + " para sacar");
 				System.out.println("");	
 				System.out.println("");
 		} else {
-			if(TotalSaques > 3  && Valor < Saldo) {
-				this.Saldo -= (Valor + (Valor * 0.01));
+			if(totalSaques > 3  && valor < getSaldo()) {
+				Double saldo = getSaldo();
+				saldo -= (valor + (valor * 0.01));
+				setSaldo(saldo);
 					System.out.println("--- Saque ---");
-					System.out.println("Saldo atual após o Saque de R$" + Valor + " já incluso taxa: R$" + Saldo);
+					System.out.println("Saldo atual após o Saque de R$" + valor + " já incluso taxa: R$" + saldo);
 					System.out.println("");
-						if(this.Saldo < 0) {
+						if(getSaldo() < 0) {
 							System.err.println("Valor Negativo (Sua conta está zerada)");
 							System.out.println("");
 						}
 			}
 			else {
-				this.Saldo -= Valor;
+				Double saldo = getSaldo();
+				saldo -= valor;
+				setSaldo(saldo);
 				System.out.println("--- Saque ---");
-				System.out.println("Saldo atual após o Saque de R$" + Valor + ": R$" + Saldo);
+				System.out.println("Saldo atual após o Saque de R$" + valor + ": R$" + saldo);
 				System.out.println("");
 			
-		TotalSaques++;
+		totalSaques++;
+		
 			}
 		}
-		return this.Saldo;
+		return getSaldo();
 	}
 }

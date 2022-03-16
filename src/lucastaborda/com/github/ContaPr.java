@@ -2,49 +2,65 @@ package lucastaborda.com.github;
 
 public class ContaPr extends ContaBanco {
 	
-	// Atributo
-	public String Classificacao;
+	// Atributos
+	private String classificacao; //"Grande Porte" ou "Pequeno Porte"
+	public Integer totalSaques = 1;
 	
-	Integer TotalSaques = 1;
-	
-	public ContaPr(String NomeTitular, Double Saldo, String Numero, String Tipo, String Classificacao) {
-		super(NomeTitular, Saldo, Numero, Tipo);
+	public ContaPr(String nomeTitular, Double saldo, String numero, String tipo, String classificacao) {
+		super(nomeTitular, saldo, numero, tipo);
 	}
 
 	// Método Depositar
-		public Double Depositar(Double Valor) {
-			if(Valor < 1000) {
-				this.Saldo += (Valor - (Valor * 0.008));
+		public Double depositar(Double valor) {
+			if(valor < 1000) {
+				Double saldo = getSaldo();
+				saldo += (valor - (valor * 0.008));
+				setSaldo(saldo);
 				System.out.println("--- Depósito ---");
-				System.out.println("Saldo atual após o Depósito de R$" + Valor + " já incluso taxa: R$" + this.Saldo);
+				System.out.println("Saldo atual após o Depósito de R$" + valor + " já incluso taxa: R$" + saldo);
 				System.out.println("");
 			} else {
-				this.Saldo += Valor;
+				Double saldo = getSaldo();
+				saldo += valor;
+				setSaldo(saldo);
 				System.out.println("--- Depósito ---");
-				System.out.println("Saldo atual após o Depósito de R$" + Valor + " = RS" + this.Saldo);
+				System.out.println("Saldo atual após o Depósito de R$" + valor + " = RS" + saldo);
 				System.out.println("");
 			}
-				return this.Saldo;
+				return getSaldo();
 		}
 			
 		// Método Sacar
-		public Double Sacar(Double Valor) {
+		public Double sacar(Double valor) {
 			
-			//System.out.println(TotalSaques);
+			//System.out.println(totalSaques);
 			
-			if(TotalSaques > 3) {
-				this.Saldo -= (Valor + (Valor * 0.015));
-				System.out.println("--- Saque ---");
-				System.out.println("Saldo atual após o Saque de R$" + Valor + " já incluso taxa: R$" + Saldo);
-				System.out.println("");
-			} else {
-				this.Saldo -= Valor;
+			if(totalSaques > 3) {
+				Double saldo = getSaldo();
+				saldo -= (valor + (valor * 0.015));
+				setSaldo(saldo);
 					System.out.println("--- Saque ---");
-					System.out.println("Saldo atual após o Saque de R$" + Valor + ": R$" + Saldo);
+					System.out.println("Saldo atual após o Saque de R$" + valor + " já incluso taxa: R$" + saldo);
+					System.out.println("");
+			} else {
+				Double saldo = getSaldo();
+				saldo -= valor;
+				setSaldo(saldo);
+					System.out.println("--- Saque ---");
+					System.out.println("Saldo atual após o Saque de R$" + valor + ": R$" + saldo);
 					System.out.println("");
 					
-				TotalSaques++;
+				totalSaques++;
 			}
-			return this.Saldo;
+			return getSaldo();
+		}
+		
+		// Métodos Setters e Getters
+		protected void setClassificacao(String classificacao) {
+			this.classificacao = classificacao;
+		}
+		
+		public String getClassificacao() {
+			return classificacao;
 		}
 }

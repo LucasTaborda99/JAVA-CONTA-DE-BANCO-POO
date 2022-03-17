@@ -7,7 +7,7 @@ public class ContaPr extends ContaBanco {
 	
 	public ContaPr(String nomeTitular, Double saldo, String numero, String tipo, String classificacao) {
 		super(nomeTitular, saldo, numero, tipo);
-		this.classificacao = classificacao;
+			setClassificacao(classificacao);
 	}
 
 	// Método Depositar
@@ -16,25 +16,23 @@ public class ContaPr extends ContaBanco {
 				Double saldo = getSaldo();
 				saldo += (valor - (valor * 0.008));
 				setSaldo(saldo);
-				System.out.println("--- Depósito ---");
-				System.out.println("Saldo atual após o Depósito de R$" + valor + " já incluso taxa: R$" + saldo);
-				System.out.println("");
+					System.out.println("--- Depósito ---");
+					System.out.println("Saldo atual após o Depósito de R$" + valor + " já incluso taxa: R$" + saldo);
+					System.out.println("");
 			} else {
 				Double saldo = getSaldo();
 				saldo += valor;
 				setSaldo(saldo);
-				System.out.println("--- Depósito ---");
-				System.out.println("Saldo atual após o Depósito de R$" + valor + " = RS" + saldo);
-				System.out.println("");
+					System.out.println("--- Depósito ---");
+					System.out.println("Saldo atual após o Depósito de R$" + valor + " = RS" + saldo);
+					System.out.println("");
 			}
 				return getSaldo();
 		}
 			
 		// Método Sacar
 		public void sacar(Double valor) {
-			
 			//System.out.println(totalSaques);
-			
 			if(totalSaques > 3) {
 				Double saldo = getSaldo();
 				saldo -= (valor + (valor * 0.015));
@@ -52,16 +50,6 @@ public class ContaPr extends ContaBanco {
 					System.out.println("");
 					
 				totalSaques++;
-
 			}
 		}
-		
-//		// Métodos Setters e Getters
-//		protected void setClassificacao(String classificacao) {
-//			this.classificacao = classificacao;
-//		}
-//		
-//		public String getClassificacao() {
-//			return classificacao;
-//		}
 }

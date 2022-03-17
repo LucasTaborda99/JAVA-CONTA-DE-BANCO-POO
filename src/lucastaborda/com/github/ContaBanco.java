@@ -1,6 +1,6 @@
 package lucastaborda.com.github;
 
-public class ContaBanco {
+public class ContaBanco implements IDetalhesConta {
 
 	// Atributos
 	private String nomeTitular;
@@ -8,6 +8,7 @@ public class ContaBanco {
 	private String numero;
 	private String tipo;
 	private Double valor;
+	protected String classificacao;
 	
 	// Método Construtor
 	public ContaBanco (String nomeTitular, Double saldo, String numero, String tipo) {
@@ -23,8 +24,8 @@ public class ContaBanco {
 	}
 	
 	// Método Sacar
-	public Double sacar(Double valor) {
-		return this.saldo; 
+	public void sacar(Double valor) {
+		this.saldo -= valor;
 	}
 	
 	// Métodos Setters e Getters
@@ -66,6 +67,40 @@ public class ContaBanco {
 	
 	public Double getValor() {
 		return valor;
+	}
+	
+	// Métodos Setters e Getters
+	protected void setClassificacao(String classificacao) {
+		this.classificacao = classificacao;
+	}
+	
+	public String getClassificacao() {
+		return classificacao;
+	}
+
+	@Override
+	public void detalhes() {
+		System.out.println("================================================================");
+		System.out.println("--- Cliente ---");
+		System.out.println(this.getNomeTitular());
+		System.out.println("");
+		System.out.println("--- Saldo ---");
+		System.out.println(this.getSaldo());
+		System.out.println("");
+		System.out.println("--- Número da Conta ---");
+		System.out.println(this.getNumero());
+		System.out.println("");
+		System.out.println("--- Tipo da Conta ---");
+		System.out.println(this.getTipo());
+		System.out.println("");
+//		System.out.println("--- Classificação do Produtor ---");
+//		System.out.println(this.getClassificacao);		
+		if (getClassificacao() != null) {
+			System.out.println("--- Classificação do Produtor ---");
+			System.out.println(getClassificacao());
+			System.out.println("");
+		}
+		System.out.println("================================================================");
 	}
 	
 }

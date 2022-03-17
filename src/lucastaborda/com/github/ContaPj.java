@@ -18,13 +18,12 @@ public class ContaPj extends ContaBanco {
 		}
 			
 		// Método Sacar
-		public Double sacar(Double valor) {
+		public void sacar(Double valor) {
 			Double saldo = getSaldo();
 			saldo -= valor;
 			setSaldo(saldo);
 				System.out.println("--- Saque ---");
 				System.out.println("Saldo atual após o Saque de R$" + valor + ": R$" + saldo);
 				System.out.println("");
-			return saldo;
 		}
 }

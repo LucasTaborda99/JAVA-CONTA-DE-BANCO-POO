@@ -20,7 +20,7 @@ public class ContaPf extends ContaBanco {
 	}
 		
 	// Método Sacar
-	public Double sacar(Double valor) {
+	public void sacar(Double valor) {
 		
 		//System.out.println(TotalSaques);
 		
@@ -41,18 +41,18 @@ public class ContaPf extends ContaBanco {
 							System.out.println("");
 						}
 			}
-			else {
-				Double saldo = getSaldo();
-				saldo -= valor;
-				setSaldo(saldo);
-				System.out.println("--- Saque ---");
-				System.out.println("Saldo atual após o Saque de R$" + valor + ": R$" + saldo);
-				System.out.println("");
-			
-		totalSaques++;
+						else {
+							Double saldo = getSaldo();
+							saldo -= valor;
+							setSaldo(saldo);
+								System.out.println("--- Saque ---");
+								System.out.println("Saldo atual após o Saque de R$" + valor + ": R$" + saldo);
+								System.out.println("");
+								
+							totalSaques++;
 		
+						}
 			}
 		}
-		return getSaldo();
 	}
-}
+

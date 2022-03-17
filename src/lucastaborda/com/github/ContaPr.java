@@ -3,11 +3,11 @@ package lucastaborda.com.github;
 public class ContaPr extends ContaBanco {
 	
 	// Atributos
-	private String classificacao; //"Grande Porte" ou "Pequeno Porte"
 	public Integer totalSaques = 1;
 	
 	public ContaPr(String nomeTitular, Double saldo, String numero, String tipo, String classificacao) {
 		super(nomeTitular, saldo, numero, tipo);
+		this.classificacao = classificacao;
 	}
 
 	// Método Depositar
@@ -31,7 +31,7 @@ public class ContaPr extends ContaBanco {
 		}
 			
 		// Método Sacar
-		public Double sacar(Double valor) {
+		public void sacar(Double valor) {
 			
 			//System.out.println(totalSaques);
 			
@@ -42,7 +42,8 @@ public class ContaPr extends ContaBanco {
 					System.out.println("--- Saque ---");
 					System.out.println("Saldo atual após o Saque de R$" + valor + " já incluso taxa: R$" + saldo);
 					System.out.println("");
-			} else {
+			}
+			else {
 				Double saldo = getSaldo();
 				saldo -= valor;
 				setSaldo(saldo);
@@ -51,16 +52,16 @@ public class ContaPr extends ContaBanco {
 					System.out.println("");
 					
 				totalSaques++;
+
 			}
-			return getSaldo();
 		}
 		
-		// Métodos Setters e Getters
-		protected void setClassificacao(String classificacao) {
-			this.classificacao = classificacao;
-		}
-		
-		public String getClassificacao() {
-			return classificacao;
-		}
+//		// Métodos Setters e Getters
+//		protected void setClassificacao(String classificacao) {
+//			this.classificacao = classificacao;
+//		}
+//		
+//		public String getClassificacao() {
+//			return classificacao;
+//		}
 }
